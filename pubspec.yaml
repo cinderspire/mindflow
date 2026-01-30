@@ -1,0 +1,60 @@
+name: mindflow
+description: AI-Powered Mental Wellness Companion - Your personal mental health assistant
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # UI & Animations
+  cupertino_icons: ^1.0.6
+  flutter_staggered_animations: ^1.1.1
+
+  # State Management
+  flutter_riverpod: ^2.4.9
+
+  # Local Storage
+  shared_preferences: ^2.2.2
+
+  # Utilities
+  intl: ^0.18.1
+  uuid: ^4.2.2
+
+  # UI Components
+  google_fonts: ^6.1.0
+  fl_chart: ^0.65.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.1
+  flutter_launcher_icons: ^0.13.1
+  flutter_native_splash: ^2.3.8
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/icon/
+    - assets/images/
+    - assets/animations/
+    - assets/fonts/
+
+flutter_launcher_icons:
+  android: true
+  ios: true
+  image_path: "assets/icon/app_icon.png"
+  adaptive_icon_background: "#6B4CE6"
+  adaptive_icon_foreground: "assets/icon/app_icon.png"
+
+flutter_native_splash:
+  color: "#0F0F1E"
+  image: "assets/icon/app_icon.png"
+  android: true
+  ios: true
+  android_12:
+    color: "#0F0F1E"
+    image: "assets/icon/app_icon.png"
