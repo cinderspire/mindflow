@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import '../../../../core/theme/app_colors.dart';
 import '../../../../core/theme/app_text_styles.dart';
 import '../../../../shared/widgets/glassmorphic_container.dart';
@@ -188,7 +187,7 @@ class CrisisResourcesScreen extends StatelessWidget {
         borderRadius: BorderRadius.circular(20),
         boxShadow: [
           BoxShadow(
-            color: const Color(0xFFE91E63).withOpacity(0.3),
+            color: const Color(0xFFE91E63).withValues(alpha: 0.3),
             blurRadius: 20,
             offset: const Offset(0, 10),
           ),
@@ -202,7 +201,7 @@ class CrisisResourcesScreen extends StatelessWidget {
               Container(
                 padding: const EdgeInsets.all(10),
                 decoration: BoxDecoration(
-                  color: Colors.white.withOpacity(0.2),
+                  color: Colors.white.withValues(alpha: 0.2),
                   borderRadius: BorderRadius.circular(12),
                 ),
                 child: const Icon(
@@ -226,7 +225,7 @@ class CrisisResourcesScreen extends StatelessWidget {
                     Text(
                       'Please call emergency services (911)',
                       style: AppTextStyles.bodySmall.copyWith(
-                        color: Colors.white.withOpacity(0.9),
+                        color: Colors.white.withValues(alpha: 0.9),
                       ),
                     ),
                   ],
@@ -238,7 +237,7 @@ class CrisisResourcesScreen extends StatelessWidget {
           Text(
             'You are not alone. Help is available right now.',
             style: AppTextStyles.bodyMedium.copyWith(
-              color: Colors.white.withOpacity(0.9),
+              color: Colors.white.withValues(alpha: 0.9),
               height: 1.5,
             ),
           ),
@@ -324,7 +323,7 @@ class CrisisResourcesScreen extends StatelessWidget {
           Container(
             padding: const EdgeInsets.all(10),
             decoration: BoxDecoration(
-              color: AppColors.primaryBlue.withOpacity(0.15),
+              color: AppColors.primaryBlue.withValues(alpha: 0.15),
               borderRadius: BorderRadius.circular(12),
             ),
             child: Icon(
@@ -370,7 +369,7 @@ class CrisisResourcesScreen extends StatelessWidget {
           Container(
             padding: const EdgeInsets.all(10),
             decoration: BoxDecoration(
-              color: AppColors.error.withOpacity(0.15),
+              color: AppColors.error.withValues(alpha: 0.15),
               borderRadius: BorderRadius.circular(12),
             ),
             child: const Icon(
@@ -398,7 +397,7 @@ class CrisisResourcesScreen extends StatelessWidget {
                     Container(
                       padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
                       decoration: BoxDecoration(
-                        color: AppColors.textTertiaryDark.withOpacity(0.2),
+                        color: AppColors.textTertiaryDark.withValues(alpha: 0.2),
                         borderRadius: BorderRadius.circular(8),
                       ),
                       child: Text(
@@ -442,7 +441,7 @@ class CrisisResourcesScreen extends StatelessWidget {
         children: [
           Row(
             children: [
-              Icon(
+              const Icon(
                 Icons.info_outline_rounded,
                 color: AppColors.textTertiaryDark,
                 size: 20,

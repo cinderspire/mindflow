@@ -66,7 +66,7 @@ class _QuickActionCardState extends State<QuickActionCard>
             borderRadius: BorderRadius.circular(20),
             boxShadow: [
               BoxShadow(
-                color: widget.gradient.colors.first.withOpacity(0.3),
+                color: widget.gradient.colors.first.withValues(alpha: 0.3),
                 blurRadius: 15,
                 offset: const Offset(0, 8),
               ),
@@ -81,7 +81,7 @@ class _QuickActionCardState extends State<QuickActionCard>
                 Container(
                   padding: const EdgeInsets.all(10),
                   decoration: BoxDecoration(
-                    color: Colors.white.withOpacity(0.2),
+                    color: Colors.white.withValues(alpha: 0.2),
                     borderRadius: BorderRadius.circular(12),
                   ),
                   child: Icon(
@@ -104,7 +104,7 @@ class _QuickActionCardState extends State<QuickActionCard>
                     Text(
                       widget.subtitle,
                       style: AppTextStyles.bodySmall.copyWith(
-                        color: Colors.white.withOpacity(0.8),
+                        color: Colors.white.withValues(alpha: 0.8),
                       ),
                     ),
                   ],

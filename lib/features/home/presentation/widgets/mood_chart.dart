@@ -175,7 +175,7 @@ class MoodChart extends ConsumerWidget {
         case 'terrible':
           return AppColors.moodTerrible;
         default:
-          return AppColors.textTertiaryDark.withOpacity(0.3);
+          return AppColors.textTertiaryDark.withValues(alpha: 0.3);
       }
     }
 
@@ -194,7 +194,7 @@ class MoodChart extends ConsumerWidget {
                     end: Alignment.bottomCenter,
                     colors: [
                       getMoodColor(),
-                      getMoodColor().withOpacity(0.6),
+                      getMoodColor().withValues(alpha: 0.6),
                     ],
                   )
                 : null,
@@ -203,7 +203,7 @@ class MoodChart extends ConsumerWidget {
             boxShadow: hasData
                 ? [
                     BoxShadow(
-                      color: getMoodColor().withOpacity(0.3),
+                      color: getMoodColor().withValues(alpha: 0.3),
                       blurRadius: 8,
                       offset: const Offset(0, 4),
                     ),

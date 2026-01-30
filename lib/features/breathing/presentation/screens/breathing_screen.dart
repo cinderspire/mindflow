@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import '../../../../core/theme/app_colors.dart';
 import '../../../../core/theme/app_text_styles.dart';
-import '../../../../shared/widgets/glassmorphic_container.dart';
-import '../../../../shared/widgets/gradient_button.dart';
 import '../widgets/breathing_circle.dart';
 
 enum BreathingTechnique {
@@ -449,8 +447,8 @@ class _BreathingScreenState extends State<BreathingScreen>
             boxShadow: [
               BoxShadow(
                 color: _isActive
-                    ? AppColors.error.withOpacity(0.3)
-                    : AppColors.primaryPurple.withOpacity(0.3),
+                    ? AppColors.error.withValues(alpha: 0.3)
+                    : AppColors.primaryPurple.withValues(alpha: 0.3),
                 blurRadius: 20,
                 offset: const Offset(0, 8),
               ),
@@ -805,8 +803,8 @@ class _BreathingExercisesScreenState extends State<BreathingExercisesScreen>
                       boxShadow: [
                         BoxShadow(
                           color: _isActive
-                              ? AppColors.error.withOpacity(0.3)
-                              : AppColors.primaryPurple.withOpacity(0.3),
+                              ? AppColors.error.withValues(alpha: 0.3)
+                              : AppColors.primaryPurple.withValues(alpha: 0.3),
                           blurRadius: 20,
                           offset: const Offset(0, 8),
                         ),

@@ -56,9 +56,9 @@ class AppColors {
   static const Color textTertiaryLight = Color(0xFF9494B8);
   
   // Glassmorphism Colors
-  static Color glassDark = const Color(0xFF1A1A2E).withOpacity(0.7);
-  static Color glassLight = const Color(0xFFFFFFFF).withOpacity(0.7);
-  static Color glassBorder = const Color(0xFFFFFFFF).withOpacity(0.1);
+  static Color glassDark = const Color(0xFF1A1A2E).withValues(alpha: 0.7);
+  static Color glassLight = const Color(0xFFFFFFFF).withValues(alpha: 0.7);
+  static Color glassBorder = const Color(0xFFFFFFFF).withValues(alpha: 0.1);
   
   // Accent Colors
   static const Color success = Color(0xFF4CAF50);
@@ -67,6 +67,6 @@ class AppColors {
   static const Color info = Color(0xFF4C9AE6);
   
   // Shadow Colors
-  static Color shadowDark = const Color(0xFF000000).withOpacity(0.3);
-  static Color shadowLight = const Color(0xFF000000).withOpacity(0.1);
+  static Color shadowDark = const Color(0xFF000000).withValues(alpha: 0.3);
+  static Color shadowLight = const Color(0xFF000000).withValues(alpha: 0.1);
 }

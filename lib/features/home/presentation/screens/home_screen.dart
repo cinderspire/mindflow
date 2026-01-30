@@ -55,10 +55,10 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
         ),
         child: Container(
           padding: const EdgeInsets.all(24),
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             color: AppColors.backgroundDarkElevated,
             borderRadius:
-                const BorderRadius.vertical(top: Radius.circular(24)),
+                BorderRadius.vertical(top: Radius.circular(24)),
           ),
           child: Column(
             mainAxisSize: MainAxisSize.min,
@@ -264,13 +264,13 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                           decoration: BoxDecoration(
                             gradient: LinearGradient(
                               colors: [
-                                Colors.amber.withOpacity(0.2),
-                                Colors.orange.withOpacity(0.2),
+                                Colors.amber.withValues(alpha: 0.2),
+                                Colors.orange.withValues(alpha: 0.2),
                               ],
                             ),
                             borderRadius: BorderRadius.circular(20),
                             border: Border.all(
-                              color: Colors.amber.withOpacity(0.5),
+                              color: Colors.amber.withValues(alpha: 0.5),
                             ),
                           ),
                           child: Row(
@@ -462,7 +462,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                           icon: Icons.analytics_rounded,
                           title: 'Analytics',
                           subtitle: 'Your insights',
-                          gradient: LinearGradient(
+                          gradient: const LinearGradient(
                             colors: [
                               AppColors.primaryTeal,
                               AppColors.primaryBlue,
@@ -723,10 +723,10 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
       child: Container(
         padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 4),
         decoration: BoxDecoration(
-          color: completed ? color.withOpacity(0.15) : AppColors.backgroundDarkCard,
+          color: completed ? color.withValues(alpha: 0.15) : AppColors.backgroundDarkCard,
           borderRadius: BorderRadius.circular(10),
           border: Border.all(
-            color: completed ? color.withOpacity(0.4) : AppColors.glassBorder,
+            color: completed ? color.withValues(alpha: 0.4) : AppColors.glassBorder,
           ),
         ),
         child: Column(

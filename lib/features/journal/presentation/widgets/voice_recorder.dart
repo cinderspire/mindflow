@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import '../../../../core/theme/app_colors.dart';
 import '../../../../core/theme/app_text_styles.dart';
-import '../../../../shared/widgets/gradient_button.dart';
 
 class VoiceRecorder extends StatefulWidget {
   final Function(String path) onRecordingComplete;
@@ -91,9 +90,9 @@ class _VoiceRecorderState extends State<VoiceRecorder>
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.all(24),
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         color: AppColors.backgroundDarkElevated,
-        borderRadius: const BorderRadius.vertical(top: Radius.circular(24)),
+        borderRadius: BorderRadius.vertical(top: Radius.circular(24)),
       ),
       child: Column(
         mainAxisSize: MainAxisSize.min,
@@ -149,7 +148,7 @@ class _VoiceRecorderState extends State<VoiceRecorder>
                           ? LinearGradient(
                               colors: [
                                 AppColors.error,
-                                AppColors.error.withOpacity(0.7),
+                                AppColors.error.withValues(alpha: 0.7),
                               ],
                             )
                           : AppColors.primaryGradient,
@@ -158,7 +157,7 @@ class _VoiceRecorderState extends State<VoiceRecorder>
                           color: (_isRecording
                                   ? AppColors.error
                                   : AppColors.primaryPurple)
-                              .withOpacity(0.4),
+                              .withValues(alpha: 0.4),
                           blurRadius: 20,
                           offset: const Offset(0, 8),
                         ),

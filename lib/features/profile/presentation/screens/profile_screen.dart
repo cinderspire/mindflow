@@ -97,7 +97,7 @@ class ProfileScreen extends ConsumerWidget {
                   shape: BoxShape.circle,
                   boxShadow: [
                     BoxShadow(
-                      color: AppColors.primaryPurple.withOpacity(0.3),
+                      color: AppColors.primaryPurple.withValues(alpha: 0.3),
                       blurRadius: 20,
                       offset: const Offset(0, 10),
                     ),
@@ -158,13 +158,13 @@ class ProfileScreen extends ConsumerWidget {
               decoration: BoxDecoration(
                 gradient: LinearGradient(
                   colors: [
-                    Colors.amber.withOpacity(0.2),
-                    Colors.orange.withOpacity(0.2),
+                    Colors.amber.withValues(alpha: 0.2),
+                    Colors.orange.withValues(alpha: 0.2),
                   ],
                 ),
                 borderRadius: BorderRadius.circular(20),
                 border: Border.all(
-                  color: Colors.amber.withOpacity(0.5),
+                  color: Colors.amber.withValues(alpha: 0.5),
                 ),
               ),
               child: Row(
@@ -267,8 +267,8 @@ class ProfileScreen extends ConsumerWidget {
         decoration: BoxDecoration(
           gradient: LinearGradient(
             colors: [
-              AppColors.primaryPurple.withOpacity(0.3),
-              AppColors.primaryBlue.withOpacity(0.3),
+              AppColors.primaryPurple.withValues(alpha: 0.3),
+              AppColors.primaryBlue.withValues(alpha: 0.3),
             ],
           ),
           borderRadius: BorderRadius.circular(16),
@@ -281,7 +281,7 @@ class ProfileScreen extends ConsumerWidget {
                 Container(
                   padding: const EdgeInsets.all(12),
                   decoration: BoxDecoration(
-                    color: Colors.amber.withOpacity(0.2),
+                    color: Colors.amber.withValues(alpha: 0.2),
                     borderRadius: BorderRadius.circular(12),
                   ),
                   child: const Icon(
@@ -465,7 +465,7 @@ class ProfileScreen extends ConsumerWidget {
       leading: Container(
         padding: const EdgeInsets.all(8),
         decoration: BoxDecoration(
-          color: AppColors.primaryPurple.withOpacity(0.1),
+          color: AppColors.primaryPurple.withValues(alpha: 0.1),
           borderRadius: BorderRadius.circular(10),
         ),
         child: Icon(icon, color: AppColors.primaryPurple, size: 22),
@@ -485,7 +485,8 @@ class ProfileScreen extends ConsumerWidget {
       trailing: Switch(
         value: value,
         onChanged: onChanged,
-        activeColor: AppColors.primaryPurple,
+        activeTrackColor: AppColors.primaryPurple.withValues(alpha: 0.5),
+        activeThumbColor: AppColors.primaryPurple,
       ),
     );
   }
@@ -502,7 +503,7 @@ class ProfileScreen extends ConsumerWidget {
       leading: Container(
         padding: const EdgeInsets.all(8),
         decoration: BoxDecoration(
-          color: (textColor ?? AppColors.primaryPurple).withOpacity(0.1),
+          color: (textColor ?? AppColors.primaryPurple).withValues(alpha: 0.1),
           borderRadius: BorderRadius.circular(10),
         ),
         child: Icon(
@@ -525,7 +526,7 @@ class ProfileScreen extends ConsumerWidget {
               ),
             )
           : null,
-      trailing: Icon(
+      trailing: const Icon(
         Icons.chevron_right_rounded,
         color: AppColors.textTertiaryDark,
       ),

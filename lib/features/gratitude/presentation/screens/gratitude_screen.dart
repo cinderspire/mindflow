@@ -177,7 +177,7 @@ class _GratitudeScreenState extends ConsumerState<GratitudeScreen> {
                 return Container(
                   padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
                   decoration: BoxDecoration(
-                    color: AppColors.primaryTeal.withOpacity(0.2),
+                    color: AppColors.primaryTeal.withValues(alpha: 0.2),
                     borderRadius: BorderRadius.circular(16),
                   ),
                   child: Text(
@@ -215,7 +215,7 @@ class _GratitudeScreenState extends ConsumerState<GratitudeScreen> {
               Container(
                 padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
                 decoration: BoxDecoration(
-                  color: AppColors.success.withOpacity(0.2),
+                  color: AppColors.success.withValues(alpha: 0.2),
                   borderRadius: BorderRadius.circular(12),
                 ),
                 child: Text(
@@ -259,7 +259,7 @@ class _GratitudeScreenState extends ConsumerState<GratitudeScreen> {
             Container(
               padding: const EdgeInsets.all(12),
               decoration: BoxDecoration(
-                color: AppColors.primaryPurple.withOpacity(0.1),
+                color: AppColors.primaryPurple.withValues(alpha: 0.1),
                 borderRadius: BorderRadius.circular(12),
               ),
               child: Text(
@@ -408,7 +408,7 @@ class _GratitudeScreenState extends ConsumerState<GratitudeScreen> {
                   Icon(
                     Icons.favorite_rounded,
                     size: 14,
-                    color: AppColors.primaryTeal.withOpacity(0.7),
+                    color: AppColors.primaryTeal.withValues(alpha: 0.7),
                   ),
                   const SizedBox(width: 8),
                   Expanded(
@@ -437,7 +437,7 @@ class _GratitudeScreenState extends ConsumerState<GratitudeScreen> {
             Icon(
               Icons.favorite_outline_rounded,
               size: 60,
-              color: AppColors.textTertiaryDark.withOpacity(0.5),
+              color: AppColors.textTertiaryDark.withValues(alpha: 0.5),
             ),
             const SizedBox(height: 16),
             Text(

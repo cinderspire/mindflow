@@ -223,7 +223,7 @@ class _CbtScreenState extends ConsumerState<CbtScreen> {
                   Icon(
                     Icons.circle,
                     size: 8,
-                    color: AppColors.primaryPurple.withOpacity(0.7),
+                    color: AppColors.primaryPurple.withValues(alpha: 0.7),
                   ),
                   const SizedBox(width: 8),
                   Expanded(
@@ -252,7 +252,7 @@ class _CbtScreenState extends ConsumerState<CbtScreen> {
     return Container(
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: color.withOpacity(0.1),
+        color: color.withValues(alpha: 0.1),
         borderRadius: BorderRadius.circular(12),
       ),
       child: Column(
@@ -297,7 +297,7 @@ class _CbtScreenState extends ConsumerState<CbtScreen> {
               Container(
                 padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
                 decoration: BoxDecoration(
-                  color: AppColors.success.withOpacity(0.2),
+                  color: AppColors.success.withValues(alpha: 0.2),
                   borderRadius: BorderRadius.circular(8),
                 ),
                 child: Text(
@@ -327,7 +327,7 @@ class _CbtScreenState extends ConsumerState<CbtScreen> {
               return Container(
                 padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
                 decoration: BoxDecoration(
-                  color: AppColors.primaryPurple.withOpacity(0.15),
+                  color: AppColors.primaryPurple.withValues(alpha: 0.15),
                   borderRadius: BorderRadius.circular(8),
                 ),
                 child: Text(
@@ -352,9 +352,9 @@ class _CbtScreenState extends ConsumerState<CbtScreen> {
       backgroundColor: Colors.transparent,
       builder: (context) => Container(
         height: MediaQuery.of(context).size.height * 0.75,
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           color: AppColors.backgroundDarkElevated,
-          borderRadius: const BorderRadius.vertical(top: Radius.circular(24)),
+          borderRadius: BorderRadius.vertical(top: Radius.circular(24)),
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -413,7 +413,7 @@ class _CbtScreenState extends ConsumerState<CbtScreen> {
                       child: Row(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Icon(Icons.warning_amber_rounded,
+                          const Icon(Icons.warning_amber_rounded,
                               size: 16, color: AppColors.warning),
                           const SizedBox(width: 8),
                           Expanded(
@@ -506,7 +506,7 @@ class _CbtScreenState extends ConsumerState<CbtScreen> {
           width: double.infinity,
           padding: const EdgeInsets.all(12),
           decoration: BoxDecoration(
-            color: color.withOpacity(0.1),
+            color: color.withValues(alpha: 0.1),
             borderRadius: BorderRadius.circular(12),
           ),
           child: Text(
@@ -525,7 +525,7 @@ class _CbtScreenState extends ConsumerState<CbtScreen> {
     return Container(
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: color.withOpacity(0.1),
+        color: color.withValues(alpha: 0.1),
         borderRadius: BorderRadius.circular(12),
       ),
       child: Column(
@@ -565,7 +565,7 @@ class _CbtScreenState extends ConsumerState<CbtScreen> {
             Icon(
               Icons.psychology_outlined,
               size: 60,
-              color: AppColors.textTertiaryDark.withOpacity(0.5),
+              color: AppColors.textTertiaryDark.withValues(alpha: 0.5),
             ),
             const SizedBox(height: 16),
             Text(
@@ -605,9 +605,9 @@ class _CbtScreenState extends ConsumerState<CbtScreen> {
         builder: (ctx, setModalState) {
           return Container(
             height: MediaQuery.of(ctx).size.height * 0.85,
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               color: AppColors.backgroundDarkElevated,
-              borderRadius: const BorderRadius.vertical(top: Radius.circular(24)),
+              borderRadius: BorderRadius.vertical(top: Radius.circular(24)),
             ),
             child: Column(
               children: [
@@ -791,7 +791,7 @@ class _CbtScreenState extends ConsumerState<CbtScreen> {
             ),
             const SizedBox(height: 20),
             Text(
-              'How strongly do you believe this thought? (${beliefBefore}%)',
+              'How strongly do you believe this thought? ($beliefBefore%)',
               style: AppTextStyles.labelMedium.copyWith(
                 color: AppColors.textSecondaryDark,
               ),
@@ -802,7 +802,7 @@ class _CbtScreenState extends ConsumerState<CbtScreen> {
               max: 100,
               divisions: 20,
               activeColor: AppColors.error,
-              inactiveColor: AppColors.error.withOpacity(0.2),
+              inactiveColor: AppColors.error.withValues(alpha: 0.2),
               onChanged: (v) => onBeliefBeforeChanged(v.round()),
             ),
           ],
@@ -836,7 +836,7 @@ class _CbtScreenState extends ConsumerState<CbtScreen> {
                   padding: const EdgeInsets.all(12),
                   decoration: BoxDecoration(
                     color: isSelected
-                        ? AppColors.primaryPurple.withOpacity(0.2)
+                        ? AppColors.primaryPurple.withValues(alpha: 0.2)
                         : AppColors.backgroundDarkCard,
                     borderRadius: BorderRadius.circular(12),
                     border: Border.all(
@@ -907,7 +907,7 @@ class _CbtScreenState extends ConsumerState<CbtScreen> {
             ),
             const SizedBox(height: 20),
             Text(
-              'After reframing, how strongly do you believe the original negative thought? (${beliefAfter}%)',
+              'After reframing, how strongly do you believe the original negative thought? ($beliefAfter%)',
               style: AppTextStyles.labelMedium.copyWith(
                 color: AppColors.textSecondaryDark,
               ),
@@ -918,7 +918,7 @@ class _CbtScreenState extends ConsumerState<CbtScreen> {
               max: 100,
               divisions: 20,
               activeColor: AppColors.success,
-              inactiveColor: AppColors.success.withOpacity(0.2),
+              inactiveColor: AppColors.success.withValues(alpha: 0.2),
               onChanged: (v) => onBeliefAfterChanged(v.round()),
             ),
           ],

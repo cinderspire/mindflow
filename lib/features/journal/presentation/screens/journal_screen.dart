@@ -122,7 +122,7 @@ class _JournalScreenState extends ConsumerState<JournalScreen> {
           Icon(
             Icons.book_outlined,
             size: 80,
-            color: AppColors.textTertiaryDark.withOpacity(0.5),
+            color: AppColors.textTertiaryDark.withValues(alpha: 0.5),
           ),
           const SizedBox(height: 16),
           Text(
@@ -320,9 +320,9 @@ class _JournalScreenState extends ConsumerState<JournalScreen> {
       backgroundColor: Colors.transparent,
       builder: (context) => Container(
         padding: const EdgeInsets.all(20),
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           color: AppColors.backgroundDarkElevated,
-          borderRadius: const BorderRadius.vertical(top: Radius.circular(24)),
+          borderRadius: BorderRadius.vertical(top: Radius.circular(24)),
         ),
         child: Column(
           mainAxisSize: MainAxisSize.min,
@@ -364,7 +364,7 @@ class _JournalScreenState extends ConsumerState<JournalScreen> {
         // Apply filter
       },
       backgroundColor: AppColors.backgroundDarkCard,
-      selectedColor: AppColors.primaryPurple.withOpacity(0.3),
+      selectedColor: AppColors.primaryPurple.withValues(alpha: 0.3),
       labelStyle: AppTextStyles.labelMedium.copyWith(
         color: AppColors.textPrimaryDark,
       ),
@@ -388,9 +388,9 @@ class _JournalScreenState extends ConsumerState<JournalScreen> {
   Widget _buildNewEntryBottomSheet(StateSetter setModalState) {
     return Container(
       height: MediaQuery.of(context).size.height * 0.85,
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         color: AppColors.backgroundDarkElevated,
-        borderRadius: const BorderRadius.vertical(top: Radius.circular(24)),
+        borderRadius: BorderRadius.vertical(top: Radius.circular(24)),
       ),
       child: Column(
         children: [
@@ -512,7 +512,7 @@ class _JournalScreenState extends ConsumerState<JournalScreen> {
             decoration: BoxDecoration(
               shape: BoxShape.circle,
               color: isSelected
-                  ? (mood['color'] as Color).withOpacity(0.3)
+                  ? (mood['color'] as Color).withValues(alpha: 0.3)
                   : Colors.transparent,
               border: Border.all(
                 color:
@@ -616,9 +616,9 @@ class _JournalScreenState extends ConsumerState<JournalScreen> {
   Widget _buildEntryDetailSheet(JournalEntry entry) {
     return Container(
       height: MediaQuery.of(context).size.height * 0.7,
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         color: AppColors.backgroundDarkElevated,
-        borderRadius: const BorderRadius.vertical(top: Radius.circular(24)),
+        borderRadius: BorderRadius.vertical(top: Radius.circular(24)),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -663,7 +663,7 @@ class _JournalScreenState extends ConsumerState<JournalScreen> {
                 Container(
                   padding: const EdgeInsets.all(12),
                   decoration: BoxDecoration(
-                    color: _getMoodColor(entry.mood).withOpacity(0.2),
+                    color: _getMoodColor(entry.mood).withValues(alpha: 0.2),
                     borderRadius: BorderRadius.circular(12),
                   ),
                   child: Text(
@@ -697,8 +697,8 @@ class _JournalScreenState extends ConsumerState<JournalScreen> {
               decoration: BoxDecoration(
                 gradient: LinearGradient(
                   colors: [
-                    AppColors.primaryPurple.withOpacity(0.3),
-                    AppColors.primaryBlue.withOpacity(0.3),
+                    AppColors.primaryPurple.withValues(alpha: 0.3),
+                    AppColors.primaryBlue.withValues(alpha: 0.3),
                   ],
                   begin: Alignment.topLeft,
                   end: Alignment.bottomRight,
@@ -737,7 +737,7 @@ class _JournalScreenState extends ConsumerState<JournalScreen> {
 
     if (difference == 0) return 'Today';
     if (difference == 1) return 'Yesterday';
-    if (difference < 7) return '${difference} days ago';
+    if (difference < 7) return '$difference days ago';
 
     return '${date.day}/${date.month}/${date.year}';
   }

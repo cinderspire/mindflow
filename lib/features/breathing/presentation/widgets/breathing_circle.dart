@@ -1,6 +1,5 @@
 import 'dart:math' as math;
 import 'package:flutter/material.dart';
-import '../../../../core/theme/app_colors.dart';
 import '../../../../core/theme/app_text_styles.dart';
 import '../screens/breathing_screen.dart';
 
@@ -41,8 +40,8 @@ class BreathingCircle extends StatelessWidget {
                   shape: BoxShape.circle,
                   gradient: RadialGradient(
                     colors: [
-                      technique.gradient.colors.first.withOpacity(0.1),
-                      technique.gradient.colors.last.withOpacity(0.05),
+                      technique.gradient.colors.first.withValues(alpha: 0.1),
+                      technique.gradient.colors.last.withValues(alpha: 0.05),
                       Colors.transparent,
                     ],
                   ),
@@ -57,7 +56,7 @@ class BreathingCircle extends StatelessWidget {
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
                   border: Border.all(
-                    color: technique.gradient.colors.first.withOpacity(opacity * 0.3),
+                    color: technique.gradient.colors.first.withValues(alpha: opacity * 0.3),
                     width: 2,
                   ),
                 ),
@@ -73,7 +72,7 @@ class BreathingCircle extends StatelessWidget {
                   gradient: technique.gradient,
                   boxShadow: [
                     BoxShadow(
-                      color: technique.gradient.colors.first.withOpacity(opacity * 0.5),
+                      color: technique.gradient.colors.first.withValues(alpha: opacity * 0.5),
                       blurRadius: 40 * scale,
                       spreadRadius: 10 * scale,
                     ),
@@ -191,7 +190,7 @@ class BreathingCircle extends StatelessWidget {
     return List.generate(6, (index) {
       final angle = (index * 60) + (animation.value * 360);
       final radians = angle * (math.pi / 180);
-      final radius = 140.0;
+      const radius = 140.0;
       final x = radius * math.cos(radians);
       final y = radius * math.sin(radians);
 
@@ -203,10 +202,10 @@ class BreathingCircle extends StatelessWidget {
           height: 8,
           decoration: BoxDecoration(
             shape: BoxShape.circle,
-            color: technique.gradient.colors.first.withOpacity(0.6),
+            color: technique.gradient.colors.first.withValues(alpha: 0.6),
             boxShadow: [
               BoxShadow(
-                color: technique.gradient.colors.first.withOpacity(0.4),
+                color: technique.gradient.colors.first.withValues(alpha: 0.4),
                 blurRadius: 10,
               ),
             ],

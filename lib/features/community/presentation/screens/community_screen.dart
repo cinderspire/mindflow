@@ -199,10 +199,10 @@ class _CommunityScreenState extends State<CommunityScreen>
           Container(
             padding: const EdgeInsets.all(10),
             decoration: BoxDecoration(
-              color: AppColors.error.withOpacity(0.2),
+              color: AppColors.error.withValues(alpha: 0.2),
               borderRadius: BorderRadius.circular(12),
             ),
-            child: Icon(
+            child: const Icon(
               Icons.emergency_rounded,
               color: AppColors.error,
               size: 24,
@@ -318,7 +318,7 @@ class _CommunityScreenState extends State<CommunityScreen>
                   vertical: 6,
                 ),
                 decoration: BoxDecoration(
-                  color: AppColors.primaryPurple.withOpacity(0.2),
+                  color: AppColors.primaryPurple.withValues(alpha: 0.2),
                   borderRadius: BorderRadius.circular(12),
                 ),
                 child: Text(
@@ -421,7 +421,7 @@ class _CommunityScreenState extends State<CommunityScreen>
         ),
         const SizedBox(height: 20),
 
-        ..._supportGroups.map((group) => _buildGroupCard(group)).toList(),
+        ..._supportGroups.map((group) => _buildGroupCard(group)),
 
         const SizedBox(height: 100),
       ],
@@ -438,7 +438,7 @@ class _CommunityScreenState extends State<CommunityScreen>
             width: 56,
             height: 56,
             decoration: BoxDecoration(
-              color: (group['color'] as Color).withOpacity(0.2),
+              color: (group['color'] as Color).withValues(alpha: 0.2),
               borderRadius: BorderRadius.circular(16),
             ),
             child: Center(
@@ -488,9 +488,9 @@ class _CommunityScreenState extends State<CommunityScreen>
       backgroundColor: Colors.transparent,
       builder: (context) => Container(
         height: MediaQuery.of(context).size.height * 0.7,
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           color: AppColors.backgroundDarkElevated,
-          borderRadius: const BorderRadius.vertical(top: Radius.circular(24)),
+          borderRadius: BorderRadius.vertical(top: Radius.circular(24)),
         ),
         child: Column(
           children: [
@@ -532,15 +532,15 @@ class _CommunityScreenState extends State<CommunityScreen>
               margin: const EdgeInsets.symmetric(horizontal: 20),
               padding: const EdgeInsets.all(12),
               decoration: BoxDecoration(
-                color: AppColors.primaryPurple.withOpacity(0.1),
+                color: AppColors.primaryPurple.withValues(alpha: 0.1),
                 borderRadius: BorderRadius.circular(12),
                 border: Border.all(
-                  color: AppColors.primaryPurple.withOpacity(0.3),
+                  color: AppColors.primaryPurple.withValues(alpha: 0.3),
                 ),
               ),
               child: Row(
                 children: [
-                  Icon(
+                  const Icon(
                     Icons.privacy_tip_rounded,
                     color: AppColors.primaryPurple,
                     size: 20,

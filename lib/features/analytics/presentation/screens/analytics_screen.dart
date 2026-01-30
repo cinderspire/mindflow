@@ -17,7 +17,6 @@ class AnalyticsScreen extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final allMoods = ref.watch(moodProvider);
-    final weeklyMoods = ref.watch(weeklyMoodsProvider);
     final averageMood = ref.watch(averageMoodProvider);
     final moodTrend = ref.watch(moodTrendProvider);
     final journalCount = ref.watch(journalCountProvider);
@@ -184,7 +183,7 @@ class AnalyticsScreen extends ConsumerWidget {
         borderRadius: BorderRadius.circular(20),
         boxShadow: [
           BoxShadow(
-            color: (gradient as LinearGradient).colors.first.withOpacity(0.3),
+            color: (gradient as LinearGradient).colors.first.withValues(alpha: 0.3),
             blurRadius: 12,
             offset: const Offset(0, 6),
           ),
@@ -210,7 +209,7 @@ class AnalyticsScreen extends ConsumerWidget {
                 Text(
                   label,
                   style: AppTextStyles.labelSmall.copyWith(
-                    color: Colors.white.withOpacity(0.8),
+                    color: Colors.white.withValues(alpha: 0.8),
                   ),
                 ),
               ],
@@ -256,7 +255,7 @@ class AnalyticsScreen extends ConsumerWidget {
                 child: Icon(
                   Icons.show_chart_rounded,
                   size: 48,
-                  color: AppColors.primaryPurple.withOpacity(0.4),
+                  color: AppColors.primaryPurple.withValues(alpha: 0.4),
                 ),
               ),
               const SizedBox(height: 12),
@@ -354,8 +353,8 @@ class AnalyticsScreen extends ConsumerWidget {
                     begin: Alignment.topCenter,
                     end: Alignment.bottomCenter,
                     colors: [
-                      AppColors.primaryPurple.withOpacity(0.3),
-                      AppColors.primaryBlue.withOpacity(0.05),
+                      AppColors.primaryPurple.withValues(alpha: 0.3),
+                      AppColors.primaryBlue.withValues(alpha: 0.05),
                     ],
                   ),
                 ),
@@ -378,7 +377,7 @@ class AnalyticsScreen extends ConsumerWidget {
               Icon(
                 Icons.pie_chart_outline_rounded,
                 size: 44,
-                color: AppColors.primaryBlue.withOpacity(0.4),
+                color: AppColors.primaryBlue.withValues(alpha: 0.4),
               ),
               const SizedBox(height: 12),
               Text(
@@ -574,7 +573,7 @@ class AnalyticsScreen extends ConsumerWidget {
                 padding: const EdgeInsets.all(10),
                 decoration: BoxDecoration(
                   color:
-                      (insight['color'] as Color).withOpacity(0.2),
+                      (insight['color'] as Color).withValues(alpha: 0.2),
                   borderRadius: BorderRadius.circular(12),
                 ),
                 child: Icon(
@@ -677,9 +676,9 @@ class AnalyticsScreen extends ConsumerWidget {
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
                 color: hasMood
-                    ? mood!.color.withOpacity(0.7)
+                    ? mood!.color.withValues(alpha: 0.7)
                     : isToday
-                        ? AppColors.primaryPurple.withOpacity(0.2)
+                        ? AppColors.primaryPurple.withValues(alpha: 0.2)
                         : Colors.transparent,
                 border: isToday
                     ? Border.all(color: AppColors.primaryPurple, width: 2)
@@ -693,7 +692,7 @@ class AnalyticsScreen extends ConsumerWidget {
                         ? Colors.white
                         : d <= today
                             ? AppColors.textSecondaryDark
-                            : AppColors.textTertiaryDark.withOpacity(0.4),
+                            : AppColors.textTertiaryDark.withValues(alpha: 0.4),
                     fontWeight:
                         isToday ? FontWeight.bold : FontWeight.normal,
                   ),

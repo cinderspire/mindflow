@@ -78,23 +78,23 @@ class _MoodSelectorState extends State<MoodSelector> {
                         ? LinearGradient(
                             colors: [
                               mood['color'] as Color,
-                              (mood['color'] as Color).withOpacity(0.7),
+                              (mood['color'] as Color).withValues(alpha: 0.7),
                             ],
                             begin: Alignment.topLeft,
                             end: Alignment.bottomRight,
                           )
                         : null,
-                    color: isSelected ? null : Colors.white.withOpacity(0.05),
+                    color: isSelected ? null : Colors.white.withValues(alpha: 0.05),
                     border: Border.all(
                       color: isSelected
                           ? Colors.transparent
-                          : Colors.white.withOpacity(0.1),
+                          : Colors.white.withValues(alpha: 0.1),
                       width: 2,
                     ),
                     boxShadow: isSelected
                         ? [
                             BoxShadow(
-                              color: (mood['color'] as Color).withOpacity(0.4),
+                              color: (mood['color'] as Color).withValues(alpha: 0.4),
                               blurRadius: 15,
                               offset: const Offset(0, 4),
                             ),

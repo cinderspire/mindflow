@@ -2,7 +2,6 @@ import 'dart:async';
 import 'dart:math' as math;
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import '../../../../core/theme/app_colors.dart';
 import '../../../../core/theme/app_text_styles.dart';
 
 class MeditationPlayer extends StatefulWidget {
@@ -121,7 +120,7 @@ class _MeditationPlayerState extends State<MeditationPlayer>
               height: 300,
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
-                color: Colors.white.withOpacity(0.05),
+                color: Colors.white.withValues(alpha: 0.05),
               ),
             ),
           ),
@@ -133,7 +132,7 @@ class _MeditationPlayerState extends State<MeditationPlayer>
               height: 200,
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
-                color: Colors.white.withOpacity(0.05),
+                color: Colors.white.withValues(alpha: 0.05),
               ),
             ),
           ),
@@ -176,14 +175,14 @@ class _MeditationPlayerState extends State<MeditationPlayer>
                         height: 200,
                         decoration: BoxDecoration(
                           shape: BoxShape.circle,
-                          color: Colors.white.withOpacity(0.1),
+                          color: Colors.white.withValues(alpha: 0.1),
                           border: Border.all(
-                            color: Colors.white.withOpacity(0.3),
+                            color: Colors.white.withValues(alpha: 0.3),
                             width: 2,
                           ),
                           boxShadow: [
                             BoxShadow(
-                              color: Colors.white.withOpacity(0.1),
+                              color: Colors.white.withValues(alpha: 0.1),
                               blurRadius: 30,
                               spreadRadius: 10,
                             ),
@@ -197,7 +196,7 @@ class _MeditationPlayerState extends State<MeditationPlayer>
                                     : 'Breathe In')
                                 : 'Ready',
                             style: AppTextStyles.titleMedium.copyWith(
-                              color: Colors.white.withOpacity(0.8),
+                              color: Colors.white.withValues(alpha: 0.8),
                             ),
                           ),
                         ),
@@ -225,7 +224,7 @@ class _MeditationPlayerState extends State<MeditationPlayer>
                       Text(
                         'with ${widget.instructor}',
                         style: AppTextStyles.bodyMedium.copyWith(
-                          color: Colors.white.withOpacity(0.7),
+                          color: Colors.white.withValues(alpha: 0.7),
                         ),
                       ),
                     ],
@@ -243,7 +242,7 @@ class _MeditationPlayerState extends State<MeditationPlayer>
                         borderRadius: BorderRadius.circular(4),
                         child: LinearProgressIndicator(
                           value: progress,
-                          backgroundColor: Colors.white.withOpacity(0.2),
+                          backgroundColor: Colors.white.withValues(alpha: 0.2),
                           valueColor: const AlwaysStoppedAnimation<Color>(
                             Colors.white,
                           ),
@@ -257,13 +256,13 @@ class _MeditationPlayerState extends State<MeditationPlayer>
                           Text(
                             _formatDuration(_currentSeconds),
                             style: AppTextStyles.labelSmall.copyWith(
-                              color: Colors.white.withOpacity(0.7),
+                              color: Colors.white.withValues(alpha: 0.7),
                             ),
                           ),
                           Text(
                             _formatDuration(totalSeconds),
                             style: AppTextStyles.labelSmall.copyWith(
-                              color: Colors.white.withOpacity(0.7),
+                              color: Colors.white.withValues(alpha: 0.7),
                             ),
                           ),
                         ],
@@ -296,7 +295,7 @@ class _MeditationPlayerState extends State<MeditationPlayer>
                             shape: BoxShape.circle,
                             boxShadow: [
                               BoxShadow(
-                                color: Colors.black.withOpacity(0.2),
+                                color: Colors.black.withValues(alpha: 0.2),
                                 blurRadius: 15,
                                 offset: const Offset(0, 8),
                               ),

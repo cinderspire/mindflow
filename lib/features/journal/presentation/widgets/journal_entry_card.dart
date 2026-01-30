@@ -88,7 +88,7 @@ class JournalEntryCard extends StatelessWidget {
               const SizedBox(height: 8),
               Row(
                 children: [
-                  Icon(
+                  const Icon(
                     Icons.play_circle_filled_rounded,
                     color: AppColors.primaryPurple,
                     size: 20,
@@ -112,19 +112,19 @@ class JournalEntryCard extends StatelessWidget {
                 decoration: BoxDecoration(
                   gradient: LinearGradient(
                     colors: [
-                      AppColors.primaryPurple.withOpacity(0.1),
-                      AppColors.primaryBlue.withOpacity(0.1),
+                      AppColors.primaryPurple.withValues(alpha: 0.1),
+                      AppColors.primaryBlue.withValues(alpha: 0.1),
                     ],
                   ),
                   borderRadius: BorderRadius.circular(12),
                   border: Border.all(
-                    color: AppColors.primaryPurple.withOpacity(0.3),
+                    color: AppColors.primaryPurple.withValues(alpha: 0.3),
                   ),
                 ),
                 child: Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Icon(
+                    const Icon(
                       Icons.auto_awesome_rounded,
                       color: AppColors.primaryPurple,
                       size: 16,
@@ -154,8 +154,8 @@ class JournalEntryCard extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
       decoration: BoxDecoration(
         color: type == 'voice'
-            ? AppColors.primaryTeal.withOpacity(0.2)
-            : AppColors.primaryPurple.withOpacity(0.2),
+            ? AppColors.primaryTeal.withValues(alpha: 0.2)
+            : AppColors.primaryPurple.withValues(alpha: 0.2),
         borderRadius: BorderRadius.circular(20),
       ),
       child: Row(

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import '../../../../core/theme/app_colors.dart';
 import '../../../../core/theme/app_text_styles.dart';
 
 class MeditationCard extends StatefulWidget {
@@ -70,7 +69,7 @@ class _MeditationCardState extends State<MeditationCard>
             borderRadius: BorderRadius.circular(20),
             boxShadow: [
               BoxShadow(
-                color: widget.gradient.colors.first.withOpacity(0.3),
+                color: widget.gradient.colors.first.withValues(alpha: 0.3),
                 blurRadius: 12,
                 offset: const Offset(0, 6),
               ),
@@ -87,7 +86,7 @@ class _MeditationCardState extends State<MeditationCard>
                   height: 80,
                   decoration: BoxDecoration(
                     shape: BoxShape.circle,
-                    color: Colors.white.withOpacity(0.1),
+                    color: Colors.white.withValues(alpha: 0.1),
                   ),
                 ),
               ),
@@ -111,7 +110,7 @@ class _MeditationCardState extends State<MeditationCard>
                                 vertical: 4,
                               ),
                               decoration: BoxDecoration(
-                                color: Colors.white.withOpacity(0.2),
+                                color: Colors.white.withValues(alpha: 0.2),
                                 borderRadius: BorderRadius.circular(12),
                               ),
                               child: Text(
@@ -126,7 +125,7 @@ class _MeditationCardState extends State<MeditationCard>
                               Container(
                                 padding: const EdgeInsets.all(6),
                                 decoration: BoxDecoration(
-                                  color: Colors.amber.withOpacity(0.9),
+                                  color: Colors.amber.withValues(alpha: 0.9),
                                   shape: BoxShape.circle,
                                 ),
                                 child: const Icon(
@@ -155,7 +154,7 @@ class _MeditationCardState extends State<MeditationCard>
                         Text(
                           widget.description,
                           style: AppTextStyles.bodySmall.copyWith(
-                            color: Colors.white.withOpacity(0.8),
+                            color: Colors.white.withValues(alpha: 0.8),
                           ),
                           maxLines: 2,
                           overflow: TextOverflow.ellipsis,
@@ -167,13 +166,13 @@ class _MeditationCardState extends State<MeditationCard>
                             Text(
                               widget.instructor,
                               style: AppTextStyles.labelSmall.copyWith(
-                                color: Colors.white.withOpacity(0.7),
+                                color: Colors.white.withValues(alpha: 0.7),
                               ),
                             ),
                             Container(
                               padding: const EdgeInsets.all(8),
                               decoration: BoxDecoration(
-                                color: Colors.white.withOpacity(0.2),
+                                color: Colors.white.withValues(alpha: 0.2),
                                 shape: BoxShape.circle,
                               ),
                               child: const Icon(

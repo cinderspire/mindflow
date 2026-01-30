@@ -63,7 +63,7 @@ class MeditationSession {
     'category': category,
     'instructor': instructor,
     'isPremium': isPremium,
-    'gradientColors': gradientColors.map((c) => c.value).toList(),
+    'gradientColors': gradientColors.map((c) => c.toARGB32()).toList(),
     'audioUrl': audioUrl,
     'playCount': playCount,
     'rating': rating,

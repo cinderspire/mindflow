@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../../../core/theme/app_colors.dart';
 import '../../../../core/theme/app_text_styles.dart';
-import '../../../../shared/widgets/glassmorphic_container.dart';
 import '../widgets/meditation_card.dart';
 import '../widgets/meditation_player.dart';
 
@@ -260,7 +259,7 @@ class _MeditationScreenState extends State<MeditationScreen>
             borderRadius: BorderRadius.circular(20),
             boxShadow: [
               BoxShadow(
-                color: AppColors.primaryPurple.withOpacity(0.3),
+                color: AppColors.primaryPurple.withValues(alpha: 0.3),
                 blurRadius: 20,
                 offset: const Offset(0, 10),
               ),
@@ -277,7 +276,7 @@ class _MeditationScreenState extends State<MeditationScreen>
                   height: 200,
                   decoration: BoxDecoration(
                     shape: BoxShape.circle,
-                    color: Colors.white.withOpacity(0.1),
+                    color: Colors.white.withValues(alpha: 0.1),
                   ),
                 ),
               ),
@@ -289,7 +288,7 @@ class _MeditationScreenState extends State<MeditationScreen>
                   height: 120,
                   decoration: BoxDecoration(
                     shape: BoxShape.circle,
-                    color: Colors.white.withOpacity(0.05),
+                    color: Colors.white.withValues(alpha: 0.05),
                   ),
                 ),
               ),
@@ -307,7 +306,7 @@ class _MeditationScreenState extends State<MeditationScreen>
                         vertical: 6,
                       ),
                       decoration: BoxDecoration(
-                        color: Colors.white.withOpacity(0.2),
+                        color: Colors.white.withValues(alpha: 0.2),
                         borderRadius: BorderRadius.circular(20),
                       ),
                       child: Text(
@@ -333,7 +332,7 @@ class _MeditationScreenState extends State<MeditationScreen>
                         Text(
                           '5 min • Instant calm technique',
                           style: AppTextStyles.bodyMedium.copyWith(
-                            color: Colors.white.withOpacity(0.8),
+                            color: Colors.white.withValues(alpha: 0.8),
                           ),
                         ),
                         const SizedBox(height: 12),
@@ -345,7 +344,7 @@ class _MeditationScreenState extends State<MeditationScreen>
                                 color: Colors.white,
                                 borderRadius: BorderRadius.circular(12),
                               ),
-                              child: Icon(
+                              child: const Icon(
                                 Icons.play_arrow_rounded,
                                 color: AppColors.primaryPurple,
                                 size: 24,
@@ -419,7 +418,7 @@ class _MeditationScreenState extends State<MeditationScreen>
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Icon(
+          const Icon(
             Icons.self_improvement_rounded,
             size: 80,
             color: AppColors.textTertiaryDark,
