@@ -164,45 +164,80 @@ class _MeditationPlayerState extends State<MeditationPlayer>
 
                 const Spacer(),
 
-                // Breathing circle
-                AnimatedBuilder(
-                  animation: _breatheAnimation,
-                  builder: (context, child) {
-                    return Transform.scale(
-                      scale: _isPlaying ? _breatheAnimation.value : 0.8,
-                      child: Container(
+                // Timer ring with breathing animation
+                SizedBox(
+                  width: 240,
+                  height: 240,
+                  child: Stack(
+                    alignment: Alignment.center,
+                    children: [
+                      // Outer glow
+                      AnimatedBuilder(
+                        animation: _breatheAnimation,
+                        builder: (context, _) {
+                          final scale = _isPlaying ? _breatheAnimation.value : 0.85;
+                          return Transform.scale(
+                            scale: scale,
+                            child: Container(
+                              width: 240,
+                              height: 240,
+                              decoration: BoxDecoration(
+                                shape: BoxShape.circle,
+                                gradient: RadialGradient(
+                                  colors: [
+                                    Colors.white.withValues(alpha: 0.08),
+                                    Colors.transparent,
+                                  ],
+                                ),
+                              ),
+                            ),
+                          );
+                        },
+                      ),
+                      // Timer ring
+                      SizedBox(
                         width: 200,
                         height: 200,
-                        decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                          color: Colors.white.withValues(alpha: 0.1),
-                          border: Border.all(
-                            color: Colors.white.withValues(alpha: 0.3),
-                            width: 2,
-                          ),
-                          boxShadow: [
-                            BoxShadow(
-                              color: Colors.white.withValues(alpha: 0.1),
-                              blurRadius: 30,
-                              spreadRadius: 10,
-                            ),
-                          ],
-                        ),
-                        child: Center(
-                          child: Text(
-                            _isPlaying
-                                ? (_breatheAnimation.value > 0.9
-                                    ? 'Breathe Out'
-                                    : 'Breathe In')
-                                : 'Ready',
-                            style: AppTextStyles.titleMedium.copyWith(
-                              color: Colors.white.withValues(alpha: 0.8),
-                            ),
+                        child: CustomPaint(
+                          painter: _TimerRingPainter(
+                            progress: progress,
+                            color: Colors.white,
+                            backgroundColor: Colors.white.withValues(alpha: 0.15),
                           ),
                         ),
                       ),
-                    );
-                  },
+                      // Center content
+                      AnimatedBuilder(
+                        animation: _breatheAnimation,
+                        builder: (context, _) {
+                          return Column(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              Text(
+                                _formatDuration(_currentSeconds),
+                                style: AppTextStyles.headlineLarge.copyWith(
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.w300,
+                                  fontSize: 36,
+                                ),
+                              ),
+                              const SizedBox(height: 4),
+                              Text(
+                                _isPlaying
+                                    ? (_breatheAnimation.value > 0.9
+                                        ? 'Breathe Out'
+                                        : 'Breathe In')
+                                    : 'Ready',
+                                style: AppTextStyles.bodyMedium.copyWith(
+                                  color: Colors.white.withValues(alpha: 0.7),
+                                ),
+                              ),
+                            ],
+                          );
+                        },
+                      ),
+                    ],
+                  ),
                 ),
 
                 const Spacer(),
@@ -327,5 +362,52 @@ class _MeditationPlayerState extends State<MeditationPlayer>
         ],
       ),
     );
+  }
+}
+
+class _TimerRingPainter extends CustomPainter {
+  final double progress;
+  final Color color;
+  final Color backgroundColor;
+
+  _TimerRingPainter({
+    required this.progress,
+    required this.color,
+    required this.backgroundColor,
+  });
+
+  @override
+  void paint(Canvas canvas, Size size) {
+    final center = Offset(size.width / 2, size.height / 2);
+    final radius = size.width / 2 - 4;
+    const strokeWidth = 4.0;
+
+    // Background ring
+    final bgPaint = Paint()
+      ..color = backgroundColor
+      ..style = PaintingStyle.stroke
+      ..strokeWidth = strokeWidth
+      ..strokeCap = StrokeCap.round;
+    canvas.drawCircle(center, radius, bgPaint);
+
+    // Progress ring
+    final progressPaint = Paint()
+      ..color = color
+      ..style = PaintingStyle.stroke
+      ..strokeWidth = strokeWidth
+      ..strokeCap = StrokeCap.round;
+
+    canvas.drawArc(
+      Rect.fromCircle(center: center, radius: radius),
+      -math.pi / 2,
+      2 * math.pi * progress,
+      false,
+      progressPaint,
+    );
+  }
+
+  @override
+  bool shouldRepaint(covariant _TimerRingPainter oldDelegate) {
+    return oldDelegate.progress != progress;
   }
 }

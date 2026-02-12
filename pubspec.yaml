@@ -28,6 +28,9 @@ dependencies:
   google_fonts: ^6.1.0
   fl_chart: ^0.65.0
 
+  # RevenueCat - In-App Purchases & Subscriptions
+  purchases_flutter: ^8.0.0
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

@@ -30,7 +30,8 @@ if (keystorePropertiesFile.exists()) {
 
 android {
     namespace "com.mindflow.app"
-    compileSdk 34
+    compileSdk 36
+    ndkVersion "28.2.13676358"
 
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
@@ -47,7 +48,7 @@ android {
 
     defaultConfig {
         applicationId "com.mindflow.app"
-        minSdk 21
+        minSdkVersion flutter.minSdkVersion
         targetSdk 34
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
@@ -57,7 +58,10 @@ android {
         release {
             keyAlias keystoreProperties['keyAlias']
             keyPassword keystoreProperties['keyPassword']
-            storeFile keystoreProperties['storeFile'] ? file(keystoreProperties['storeFile']) : null
+            def sf = keystoreProperties['storeFile']
+            if (sf != null && !sf.contains(':')) {
+                storeFile file(sf)
+            }
             storePassword keystoreProperties['storePassword']
         }
     }

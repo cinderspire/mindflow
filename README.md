@@ -1,221 +1,139 @@
-# MindFlow - AI-Powered Mental Wellness Companion
+# Simon — AI Wellness Coach 🧘‍♀️✨
 
-![MindFlow App Icon](C:/Users/hp/.gemini/antigravity/brain/031545c7-f1b0-4316-8896-82fa2766842a/mindflow_app_icon_1769043803309.png)
+> Your personal AI-powered mental wellness companion. Personalized meditation, mindfulness coaching, breathing exercises, and more — powered by RevenueCat subscriptions.
 
-## Overview
+**Built for the RevenueCat Hackathon — "Simon" Brief (AI Coaching)**
 
-MindFlow is a cross-platform mental wellness application built with Flutter, designed to help users track their emotional well-being, practice meditation, and connect with a supportive community. The app features AI-powered insights, beautiful animations, and a calming user experience.
-
-## Features
-
-### ✨ Core Features
-
-- **🎭 Interactive Mood Tracking** - Express your feelings with emoji-based mood selection
-- **📝 AI Mood Journal** - Voice and text entries analyzed for sentiment patterns
-- **🧘 Meditation Library** - Curated sessions (5-20 minutes) with guided breathing exercises
-- **📊 Mood Analytics** - Weekly/monthly visualizations with AI-generated insights
-- **👥 Anonymous Community** - Share experiences and find peer support
-- **🆘 Crisis Resources** - Instant access to hotlines and therapist directories
-
-### 🎨 Design Highlights
-
-- **Glassmorphism 2.0** - Frosted glass effects with layered transparency
-- **Calming Gradients** - Purple to teal color spectrum for relaxation
-- **Dark Mode First** - Optimized for reduced eye strain
-- **Smooth Animations** - 60 FPS spring physics and micro-interactions
-- **Haptic Feedback** - Tactile responses for all interactions
-- **Accessibility First** - WCAG 2.1 AA compliant, screen reader support
-
-## Screenshots
-
-### Splash Screen
-![Splash Screen](C:/Users/hp/.gemini/antigravity/brain/031545c7-f1b0-4316-8896-82fa2766842a/mindflow_splash_screen_1769043834584.png)
-
-### Onboarding
-![Onboarding](C:/Users/hp/.gemini/antigravity/brain/031545c7-f1b0-4316-8896-82fa2766842a/mindflow_onboarding_illustration_1769043859734.png)
-
-## Tech Stack
-
-- **Framework**: Flutter 3.x (Dart)
-- **State Management**: Riverpod 2.x
-- **Backend**: Firebase Suite (Auth, Firestore, Storage, Analytics, FCM)
-- **Local Storage**: Hive + flutter_secure_storage
-- **Animations**: Lottie, flutter_staggered_animations
-- **UI Components**: GetWidget, custom Material Design 3 widgets
-- **Voice**: speech_to_text, flutter_tts
-- **Typography**: Google Fonts (Inter, Outfit)
-
-## Project Structure
-
-```
-mindflow/
-├── lib/
-│   ├── core/
-│   │   ├── theme/
-│   │   │   ├── app_colors.dart       # Color palette & gradients
-│   │   │   ├── app_text_styles.dart  # Typography system
-│   │   │   └── app_theme.dart        # Material Design 3 themes
-│   │   ├── constants/
-│   │   ├── utils/
-│   │   └── services/
-│   ├── features/
-│   │   ├── home/
-│   │   │   └── presentation/
-│   │   │       ├── screens/
-│   │   │       │   └── home_screen.dart
-│   │   │       └── widgets/
-│   │   │           ├── mood_selector.dart
-│   │   │           ├── quick_action_card.dart
-│   │   │           └── mood_chart.dart
-│   │   ├── journal/
-│   │   ├── meditation/
-│   │   ├── community/
-│   │   └── profile/
-│   ├── shared/
-│   │   ├── widgets/
-│   │   │   ├── glassmorphic_container.dart
-│   │   │   └── gradient_button.dart
-│   │   └── animations/
-│   └── main.dart
-├── assets/
-│   ├── images/
-│   ├── fonts/
-│   └── animations/
-└── pubspec.yaml
-```
-
-## Installation & Setup
-
-### Prerequisites
-- Flutter SDK 3.0.0 or higher
-- Dart SDK 3.0.0 or higher
-- Android Studio / Xcode (for mobile development)
-- Firebase project (for backend services)
-
-### Steps
-
-1. **Clone the repository**
-   ```bash
-   cd All_Apps/mindflow
-   ```
-
-2. **Install dependencies**
-   ```bash
-   flutter pub get
-   ```
-
-3. **Configure Firebase**
-   - Create a Firebase project at [firebase.google.com](https://firebase.google.com)
-   - Download `google-services.json` (Android) and `GoogleService-Info.plist` (iOS)
-   - Place them in the appropriate directories
-
-4. **Run the app**
-   ```bash
-   # For Android
-   flutter run
-
-   # For iOS
-   flutter run -d ios
-
-   # For Web
-   flutter run -d chrome
-   ```
-
-## Development Guidelines
-
-### Code Style
-- Follow Dart official style guide
-- Use meaningful variable names
-- Comment complex logic
-- Extract reusable widgets
-
-### State Management
-- Use Riverpod providers for state
-- Keep business logic separate from UI
-- Implement proper error handling
-
-### UI/UX Principles
-- Maintain 60 FPS animations
-- Test on multiple screen sizes
-- Ensure proper contrast ratios
-- Implement loading states
-
-## Monetization Strategy
-
-### Freemium Model
-**Free Tier:**
-- Basic mood tracking
-- Limited meditation sessions
-- Community access
-- Basic analytics
-
-**Premium Tier** ($9.99/month or $79.99/year):
-- Unlimited AI insights
-- Advanced analytics
-- Full meditation library
-- Therapist directory
-- Ad-free experience
-
-**Rewarded Ads:**
-- Free users watch ads for 1-day premium feature access
-
-## Roadmap
-
-### Version 1.0 (MVP) ✅
-- [x] Core UI/UX design system
-- [x] Home screen with mood tracking
-- [x] Mood analytics chart
-- [x] Glassmorphic components
-- [ ] Journal feature
-- [ ] Meditation library
-- [ ] Community forums
-- [ ] User profile
-
-### Version 2.0
-- [ ] AI Chat Companion (GPT-4 integration)
-- [ ] Sleep sound generator
-- [ ] Wearable integration (Apple Watch, Fitbit)
-- [ ] Therapist matching service
-- [ ] Offline mode
-- [ ] Multi-language support
-
-## Performance Targets
-
-- **App Size**: < 50MB (uncompressed)
-- **Launch Time**: < 2 seconds
-- **Frame Rate**: 60 FPS minimum
-- **Memory**: < 200MB average usage
-- **Crash Rate**: < 0.1%
-
-## Testing
-
-```bash
-# Run unit tests
-flutter test test/unit/
-
-# Run widget tests
-flutter test test/widgets/
-
-# Run integration tests
-flutter test integration_test/
-```
-
-## Contributing
-
-This is a commercial project. For contributions or suggestions, please contact the development team.
-
-## License
-
-Proprietary - All rights reserved
-
-## Contact & Support
-
-- **App Website**: [Coming Soon]
-- **Support Email**: support@mindflowapp.com
-- **Social Media**: @mindflowapp
+<p align="center">
+  <img src="assets/icon/app_icon.png" width="120" alt="Simon App Icon"/>
+</p>
 
 ---
 
-**Built with ❤️ using Flutter**
+## 🌟 What is Simon?
 
-*MindFlow - Your journey to mental wellness starts here.*
+Simon is a comprehensive mental wellness app that combines **AI coaching**, **guided meditation**, **breathing exercises**, **sleep stories**, **journaling**, and **CBT techniques** into one beautiful, dark-mode-first Flutter experience.
+
+The AI coach ("Simon") runs **entirely on-device** using a rule-based therapeutic framework — no external API keys needed. It provides evidence-based guidance using CBT (Cognitive Behavioral Therapy) and mindfulness techniques.
+
+## ✨ Features
+
+### Free Tier
+- 🎯 **Mood Tracking** — Daily check-ins with weekly mood charts
+- ✍️ **Journaling** — Express thoughts and feelings
+- 🌬️ **Breathing Exercises** — Box breathing, 4-7-8, and more
+- 📊 **Wellness Score** — Track your overall wellness
+- 🙏 **Gratitude Practice** — Daily gratitude entries
+- 🧠 **CBT Tools** — Cognitive reframing exercises
+- 🆘 **Crisis Resources** — Immediate support when needed
+- 👤 **Profile & Streaks** — Track your consistency
+
+### Premium (via RevenueCat) 💎
+- 🤖 **AI Wellness Coach** — Chat with Simon for personalized CBT-based guidance
+- 😴 **Sleep Stories** — Calming narrated stories for peaceful sleep
+- 🧘 **Body Scan** — 15-region progressive relaxation (4 min guided)
+- ✨ **Daily Affirmations** — Swipeable positive affirmations
+- 🔓 **Unlimited Meditations** — Full library access
+- 📈 **Advanced Analytics** — Deep wellness insights
+
+## 🏗️ Architecture
+
+```
+lib/
+├── core/
+│   ├── constants/         # App constants
+│   ├── models/            # Data models (mood, journal, etc.)
+│   ├── providers/         # Riverpod state providers
+│   ├── services/          # Storage, RevenueCat service
+│   ├── theme/             # Colors, typography, themes
+│   └── utils/             # Helpers
+├── features/
+│   ├── affirmations/      # 🆕 Daily affirmations (Premium)
+│   ├── bodyscan/          # 🆕 Guided body scan (Premium)
+│   ├── breathing/         # Breathing exercises
+│   ├── cbt/               # CBT cognitive reframing
+│   ├── coach/             # 🆕 AI wellness coach (Premium)
+│   ├── community/         # Community features
+│   ├── crisis/            # Crisis resources
+│   ├── discover/          # 🆕 Feature discovery & paywall
+│   ├── gratitude/         # Gratitude journal
+│   ├── home/              # Home screen & navigation
+│   ├── journal/           # Journaling
+│   ├── meditation/        # Guided meditations
+│   ├── paywall/           # 🆕 RevenueCat paywall
+│   ├── profile/           # User profile
+│   └── sleep/             # 🆕 Sleep stories (Premium)
+└── shared/
+    └── widgets/           # Reusable widgets (glass cards, buttons)
+```
+
+## 💰 RevenueCat Integration
+
+Simon uses **RevenueCat** (`purchases_flutter ^8.0.0`) for subscription management:
+
+- **Entitlement:** `premium`
+- **Products:** `simon_premium_monthly` ($9.99/mo), `simon_premium_yearly` ($59.99/yr)
+- Paywall with feature highlights and plan selection
+- Restore purchases support
+- Graceful fallback when API keys are not configured
+
+### Setup
+
+1. Create a RevenueCat project at [app.revenuecat.com](https://app.revenuecat.com)
+2. Configure your App Store / Play Store products
+3. Replace API keys in `lib/core/services/revenuecat_service.dart`:
+   ```dart
+   static const String appleApiKey = 'appl_YOUR_KEY';
+   static const String googleApiKey = 'goog_YOUR_KEY';
+   ```
+
+## 🚀 Getting Started
+
+```bash
+# Install dependencies
+flutter pub get
+
+# Run in debug mode
+flutter run
+
+# Build for iOS
+flutter build ios --no-codesign
+
+# Build for Android
+flutter build appbundle
+```
+
+### Requirements
+- Flutter 3.0+
+- Dart 3.0+
+- iOS 15+ / Android API 24+
+
+## 🧪 Technical Highlights
+
+- **State Management:** Flutter Riverpod
+- **On-Device AI:** Rule-based CBT coaching engine (zero API dependencies)
+- **Local Storage:** SharedPreferences for all user data
+- **Animations:** Custom animations, glassmorphism, gradient effects
+- **Typography:** Google Fonts (Outfit + Inter)
+- **Dark Mode First:** Beautiful dark theme optimized for evening use
+
+## 📱 Screenshots
+
+The app features:
+- Glassmorphic navigation bar with gradient active states
+- Mood chart with weekly visualization
+- AI coach chat interface with quick prompts
+- Sleep story player with pulsing ambient animations
+- Body scan with progressive region highlighting
+- Swipeable affirmation cards with gradient backgrounds
+
+## 🙏 Credits
+
+Built with Flutter & RevenueCat for the RevenueCat Hackathon.
+
+- Meditation content & therapeutic frameworks based on evidence-based CBT and mindfulness practices
+- No external AI APIs required — all coaching logic runs on-device
+
+---
+
+**Simon** — Because everyone deserves a wellness companion in their pocket. 💜

@@ -104,6 +104,23 @@ class AnalyticsScreen extends ConsumerWidget {
 
                 const SizedBox(height: 24),
 
+                // Streak Visualization
+                if (stats.currentStreak > 0 || stats.longestStreak > 0) ...[
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 20),
+                    child: Text(
+                      'Your Streak',
+                      style: AppTextStyles.titleLarge.copyWith(
+                        color: AppColors.textPrimaryDark,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 12),
+                  _buildStreakVisualization(stats),
+                  const SizedBox(height: 24),
+                ],
+
                 // Activity Heatmap
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 20),
@@ -123,6 +140,115 @@ class AnalyticsScreen extends ConsumerWidget {
             ),
           ),
         ),
+      ),
+    );
+  }
+
+  Widget _buildStreakVisualization(UserStats stats) {
+    return GlassCard(
+      child: Column(
+        children: [
+          Row(
+            children: [
+              // Current streak
+              Expanded(
+                child: Container(
+                  padding: const EdgeInsets.all(16),
+                  decoration: BoxDecoration(
+                    gradient: LinearGradient(
+                      colors: [
+                        Colors.amber.withValues(alpha: 0.15),
+                        Colors.orange.withValues(alpha: 0.1),
+                      ],
+                    ),
+                    borderRadius: BorderRadius.circular(16),
+                  ),
+                  child: Column(
+                    children: [
+                      const Text('🔥', style: TextStyle(fontSize: 32)),
+                      const SizedBox(height: 8),
+                      Text(
+                        '${stats.currentStreak}',
+                        style: AppTextStyles.headlineLarge.copyWith(
+                          color: Colors.amber,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      Text(
+                        'Current Streak',
+                        style: AppTextStyles.labelSmall.copyWith(
+                          color: AppColors.textTertiaryDark,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              const SizedBox(width: 12),
+              // Longest streak
+              Expanded(
+                child: Container(
+                  padding: const EdgeInsets.all(16),
+                  decoration: BoxDecoration(
+                    gradient: LinearGradient(
+                      colors: [
+                        AppColors.secondaryLavender.withValues(alpha: 0.15),
+                        AppColors.secondaryLavenderDark.withValues(alpha: 0.1),
+                      ],
+                    ),
+                    borderRadius: BorderRadius.circular(16),
+                  ),
+                  child: Column(
+                    children: [
+                      const Text('⭐', style: TextStyle(fontSize: 32)),
+                      const SizedBox(height: 8),
+                      Text(
+                        '${stats.longestStreak}',
+                        style: AppTextStyles.headlineLarge.copyWith(
+                          color: AppColors.secondaryLavender,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      Text(
+                        'Longest Streak',
+                        style: AppTextStyles.labelSmall.copyWith(
+                          color: AppColors.textTertiaryDark,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ],
+          ),
+          if (stats.currentStreak > 0) ...[
+            const SizedBox(height: 16),
+            // Streak progress dots
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: List.generate(
+                stats.currentStreak.clamp(0, 14),
+                (i) => Container(
+                  width: 16,
+                  height: 16,
+                  margin: const EdgeInsets.symmetric(horizontal: 2),
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    gradient: LinearGradient(
+                      colors: [
+                        Colors.amber.withValues(alpha: 0.6 + (i / 14) * 0.4),
+                        Colors.orange.withValues(alpha: 0.4 + (i / 14) * 0.6),
+                      ],
+                    ),
+                  ),
+                  child: i == stats.currentStreak.clamp(0, 14) - 1
+                      ? const Icon(Icons.star_rounded, color: Colors.white, size: 10)
+                      : null,
+                ),
+              ),
+            ),
+          ],
+        ],
       ),
     );
   }

@@ -17,7 +17,30 @@ class MoodSelector extends StatefulWidget {
   State<MoodSelector> createState() => _MoodSelectorState();
 }
 
-class _MoodSelectorState extends State<MoodSelector> {
+class _MoodSelectorState extends State<MoodSelector>
+    with SingleTickerProviderStateMixin {
+  late AnimationController _bounceController;
+  late Animation<double> _bounceAnimation;
+
+  @override
+  void initState() {
+    super.initState();
+    _bounceController = AnimationController(
+      duration: const Duration(milliseconds: 400),
+      vsync: this,
+    );
+    _bounceAnimation = TweenSequence<double>([
+      TweenSequenceItem(tween: Tween(begin: 1.0, end: 1.2), weight: 50),
+      TweenSequenceItem(tween: Tween(begin: 1.2, end: 1.0), weight: 50),
+    ]).animate(CurvedAnimation(parent: _bounceController, curve: Curves.easeInOut));
+  }
+
+  @override
+  void dispose() {
+    _bounceController.dispose();
+    super.dispose();
+  }
+
   final List<Map<String, dynamic>> _moods = [
     {
       'id': 'terrible',
@@ -65,6 +88,7 @@ class _MoodSelectorState extends State<MoodSelector> {
               return GestureDetector(
                 onTap: () {
                   HapticFeedback.mediumImpact();
+                  _bounceController.forward(from: 0);
                   widget.onMoodSelected(mood['id'] as String);
                 },
                 child: AnimatedContainer(
@@ -102,12 +126,22 @@ class _MoodSelectorState extends State<MoodSelector> {
                         : [],
                   ),
                   child: Center(
-                    child: Text(
-                      mood['emoji'] as String,
-                      style: TextStyle(
-                        fontSize: isSelected ? 32 : 28,
-                      ),
-                    ),
+                    child: isSelected
+                        ? AnimatedBuilder(
+                            animation: _bounceAnimation,
+                            builder: (context, child) => Transform.scale(
+                              scale: _bounceAnimation.value,
+                              child: child,
+                            ),
+                            child: Text(
+                              mood['emoji'] as String,
+                              style: const TextStyle(fontSize: 32),
+                            ),
+                          )
+                        : Text(
+                            mood['emoji'] as String,
+                            style: const TextStyle(fontSize: 28),
+                          ),
                   ),
                 ),
               );

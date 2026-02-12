@@ -5,7 +5,7 @@ import '../../../../core/providers/navigation_provider.dart';
 import '../../../../shared/widgets/glassmorphic_container.dart';
 import '../../../journal/presentation/screens/journal_screen.dart';
 import '../../../breathing/presentation/screens/breathing_screen.dart';
-import '../../../analytics/presentation/screens/analytics_screen.dart';
+import '../../../discover/presentation/screens/discover_screen.dart';
 import '../../../profile/presentation/screens/profile_screen.dart';
 import 'home_screen.dart';
 
@@ -16,7 +16,7 @@ class MainNavigationScreen extends ConsumerWidget {
     {'icon': Icons.home_rounded, 'label': 'Home'},
     {'icon': Icons.edit_note_rounded, 'label': 'Journal'},
     {'icon': Icons.air_rounded, 'label': 'Breathe'},
-    {'icon': Icons.analytics_rounded, 'label': 'Analytics'},
+    {'icon': Icons.explore_rounded, 'label': 'Discover'},
     {'icon': Icons.person_rounded, 'label': 'Profile'},
   ];
 
@@ -32,7 +32,7 @@ class MainNavigationScreen extends ConsumerWidget {
           HomeScreen(),
           JournalScreen(),
           BreathingExercisesScreen(),
-          AnalyticsScreen(),
+          DiscoverScreen(),
           ProfileScreen(),
         ],
       ),
@@ -82,15 +82,38 @@ class MainNavigationScreen extends ConsumerWidget {
       child: AnimatedContainer(
         duration: const Duration(milliseconds: 300),
         curve: Curves.easeInOut,
-        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+        padding: EdgeInsets.symmetric(
+          horizontal: isSelected ? 16 : 12,
+          vertical: 10,
+        ),
         decoration: BoxDecoration(
-          gradient: isSelected ? AppColors.primaryGradient : null,
+          gradient: isSelected
+              ? const LinearGradient(
+                  colors: [Color(0xFFA78BFA), Color(0xFF8B5CF6)],
+                )
+              : null,
           borderRadius: BorderRadius.circular(20),
         ),
-        child: Icon(
-          item['icon'] as IconData,
-          color: isSelected ? Colors.white : AppColors.textTertiaryDark,
-          size: 24,
+        child: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Icon(
+              item['icon'] as IconData,
+              color: isSelected ? Colors.white : AppColors.textTertiaryDark,
+              size: 22,
+            ),
+            if (isSelected) ...[
+              const SizedBox(width: 6),
+              Text(
+                item['label'] as String,
+                style: const TextStyle(
+                  color: Colors.white,
+                  fontSize: 12,
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
+            ],
+          ],
         ),
       ),
     );

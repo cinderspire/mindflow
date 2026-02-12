@@ -23,6 +23,11 @@ class _JournalScreenState extends ConsumerState<JournalScreen> {
   String _selectedMood = 'neutral';
   String _searchQuery = '';
   bool _showSearch = false;
+  final Set<String> _selectedTags = {};
+  static const List<String> _availableTags = [
+    'Gratitude', 'Stress', 'Anxiety', 'Sleep', 'Work',
+    'Relationships', 'Growth', 'Exercise', 'Mindfulness', 'Goals',
+  ];
 
   @override
   void dispose() {
@@ -119,15 +124,28 @@ class _JournalScreenState extends ConsumerState<JournalScreen> {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Icon(
-            Icons.book_outlined,
-            size: 80,
-            color: AppColors.textTertiaryDark.withValues(alpha: 0.5),
+          Container(
+            width: 100,
+            height: 100,
+            decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              gradient: RadialGradient(
+                colors: [
+                  AppColors.secondaryLavender.withValues(alpha: 0.15),
+                  AppColors.secondaryLavender.withValues(alpha: 0.03),
+                ],
+              ),
+            ),
+            child: Icon(
+              _searchQuery.isEmpty ? Icons.auto_stories_rounded : Icons.search_off_rounded,
+              size: 48,
+              color: AppColors.secondaryLavender.withValues(alpha: 0.6),
+            ),
           ),
-          const SizedBox(height: 16),
+          const SizedBox(height: 20),
           Text(
             _searchQuery.isEmpty
-                ? 'No journal entries yet'
+                ? 'Your cosmic journal awaits ✨'
                 : 'No entries found',
             style: AppTextStyles.titleMedium.copyWith(
               color: AppColors.textSecondaryDark,
@@ -136,7 +154,7 @@ class _JournalScreenState extends ConsumerState<JournalScreen> {
           const SizedBox(height: 8),
           Text(
             _searchQuery.isEmpty
-                ? 'Start writing to capture your thoughts'
+                ? 'Write your thoughts among the stars'
                 : 'Try a different search term',
             style: AppTextStyles.bodyMedium.copyWith(
               color: AppColors.textTertiaryDark,
@@ -445,7 +463,67 @@ class _JournalScreenState extends ConsumerState<JournalScreen> {
             ),
           ),
 
-          const SizedBox(height: 20),
+          const SizedBox(height: 12),
+
+          // Tags
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  'Tags',
+                  style: AppTextStyles.titleSmall.copyWith(
+                    color: AppColors.textSecondaryDark,
+                  ),
+                ),
+                const SizedBox(height: 8),
+                Wrap(
+                  spacing: 8,
+                  runSpacing: 8,
+                  children: _availableTags.map((tag) {
+                    final isSelected = _selectedTags.contains(tag);
+                    return GestureDetector(
+                      onTap: () {
+                        setModalState(() {
+                          if (isSelected) {
+                            _selectedTags.remove(tag);
+                          } else {
+                            _selectedTags.add(tag);
+                          }
+                        });
+                      },
+                      child: AnimatedContainer(
+                        duration: const Duration(milliseconds: 200),
+                        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+                        decoration: BoxDecoration(
+                          color: isSelected
+                              ? AppColors.secondaryLavender.withValues(alpha: 0.2)
+                              : AppColors.backgroundDarkCard,
+                          borderRadius: BorderRadius.circular(16),
+                          border: Border.all(
+                            color: isSelected
+                                ? AppColors.secondaryLavender
+                                : AppColors.glassBorder,
+                          ),
+                        ),
+                        child: Text(
+                          tag,
+                          style: AppTextStyles.labelSmall.copyWith(
+                            color: isSelected
+                                ? AppColors.secondaryLavender
+                                : AppColors.textTertiaryDark,
+                          ),
+                        ),
+                      ),
+                    );
+                  }).toList(),
+                ),
+              ],
+            ),
+          ),
+
+          const SizedBox(height: 16),
 
           // Text Input
           Expanded(
@@ -568,12 +646,14 @@ class _JournalScreenState extends ConsumerState<JournalScreen> {
       timestamp: DateTime.now(),
       mood: _selectedMood,
       type: JournalType.text,
+      tags: _selectedTags.isNotEmpty ? _selectedTags.toList() : null,
     );
 
     ref.read(journalProvider.notifier).addEntry(entry);
     HapticFeedback.mediumImpact();
 
     _textController.clear();
+    _selectedTags.clear();
     Navigator.pop(context);
 
     ScaffoldMessenger.of(context).showSnackBar(

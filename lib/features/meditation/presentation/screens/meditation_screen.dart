@@ -418,24 +418,38 @@ class _MeditationScreenState extends State<MeditationScreen>
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          const Icon(
-            Icons.self_improvement_rounded,
-            size: 80,
-            color: AppColors.textTertiaryDark,
+          Container(
+            width: 100,
+            height: 100,
+            decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              gradient: RadialGradient(
+                colors: [
+                  AppColors.secondaryLavender.withValues(alpha: 0.15),
+                  AppColors.secondaryLavender.withValues(alpha: 0.03),
+                ],
+              ),
+            ),
+            child: Icon(
+              Icons.self_improvement_rounded,
+              size: 48,
+              color: AppColors.secondaryLavender.withValues(alpha: 0.6),
+            ),
           ),
-          const SizedBox(height: 16),
+          const SizedBox(height: 20),
           Text(
-            'No saved sessions yet',
+            'Your meditation journey begins ✨',
             style: AppTextStyles.titleLarge.copyWith(
               color: AppColors.textSecondaryDark,
             ),
           ),
           const SizedBox(height: 8),
           Text(
-            'Your favorite meditations will appear here',
+            'Favorite meditations will appear here like stars in your sky',
             style: AppTextStyles.bodyMedium.copyWith(
               color: AppColors.textTertiaryDark,
             ),
+            textAlign: TextAlign.center,
           ),
         ],
       ),

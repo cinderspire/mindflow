@@ -3,24 +3,24 @@ import 'package:flutter/services.dart';
 import 'app_colors.dart';
 import 'app_text_styles.dart';
 
-/// MindFlow App Theme - Material Design 3 with custom colors
+/// MindFlow App Theme - Night Sky Theme
 class AppTheme {
   AppTheme._();
 
-  // Dark Theme (Primary)
+  // Dark Theme (Primary - Night Sky)
   static ThemeData darkTheme = ThemeData(
     useMaterial3: true,
     brightness: Brightness.dark,
     
     // Color Scheme
     colorScheme: const ColorScheme.dark(
-      primary: AppColors.primaryPurple,
-      secondary: AppColors.primaryBlue,
-      tertiary: AppColors.primaryTeal,
+      primary: AppColors.secondaryLavender,
+      secondary: AppColors.secondaryLavenderDark,
+      tertiary: AppColors.accentStarWhite,
       surface: AppColors.backgroundDarkCard,
       surfaceContainerHighest: AppColors.backgroundDark,
       error: AppColors.error,
-      onPrimary: Colors.white,
+      onPrimary: AppColors.primaryNavy,
       onSecondary: Colors.white,
       onSurface: AppColors.textPrimaryDark,
       onSurfaceVariant: AppColors.textPrimaryDark,
@@ -55,7 +55,7 @@ class AppTheme {
     // Bottom Navigation
     bottomNavigationBarTheme: const BottomNavigationBarThemeData(
       backgroundColor: AppColors.backgroundDarkElevated,
-      selectedItemColor: AppColors.primaryPurple,
+      selectedItemColor: AppColors.secondaryLavender,
       unselectedItemColor: AppColors.textTertiaryDark,
       type: BottomNavigationBarType.fixed,
       elevation: 0,
@@ -63,16 +63,16 @@ class AppTheme {
     
     // Floating Action Button
     floatingActionButtonTheme: const FloatingActionButtonThemeData(
-      backgroundColor: AppColors.primaryPurple,
-      foregroundColor: Colors.white,
+      backgroundColor: AppColors.secondaryLavender,
+      foregroundColor: AppColors.primaryNavy,
       elevation: 4,
     ),
     
     // Elevated Button
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
-        backgroundColor: AppColors.primaryPurple,
-        foregroundColor: Colors.white,
+        backgroundColor: AppColors.secondaryLavender,
+        foregroundColor: AppColors.primaryNavy,
         elevation: 0,
         padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
         shape: RoundedRectangleBorder(
@@ -85,7 +85,7 @@ class AppTheme {
     // Text Button
     textButtonTheme: TextButtonThemeData(
       style: TextButton.styleFrom(
-        foregroundColor: AppColors.primaryPurple,
+        foregroundColor: AppColors.secondaryLavender,
         textStyle: AppTextStyles.button,
       ),
     ),
@@ -104,7 +104,7 @@ class AppTheme {
       ),
       focusedBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(12),
-        borderSide: const BorderSide(color: AppColors.primaryPurple, width: 2),
+        borderSide: const BorderSide(color: AppColors.secondaryLavender, width: 2),
       ),
       errorBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(12),
@@ -149,9 +149,9 @@ class AppTheme {
     brightness: Brightness.light,
     
     colorScheme: const ColorScheme.light(
-      primary: AppColors.primaryPurple,
-      secondary: AppColors.primaryBlue,
-      tertiary: AppColors.primaryTeal,
+      primary: AppColors.secondaryLavenderDark,
+      secondary: AppColors.secondaryLavender,
+      tertiary: AppColors.primaryNavy,
       surface: AppColors.backgroundLightCard,
       surfaceContainerHighest: AppColors.backgroundLight,
       error: AppColors.error,
@@ -187,21 +187,21 @@ class AppTheme {
 
     bottomNavigationBarTheme: const BottomNavigationBarThemeData(
       backgroundColor: AppColors.backgroundLightElevated,
-      selectedItemColor: AppColors.primaryPurple,
+      selectedItemColor: AppColors.secondaryLavenderDark,
       unselectedItemColor: AppColors.textTertiaryLight,
       type: BottomNavigationBarType.fixed,
       elevation: 8,
     ),
     
     floatingActionButtonTheme: const FloatingActionButtonThemeData(
-      backgroundColor: AppColors.primaryPurple,
+      backgroundColor: AppColors.secondaryLavenderDark,
       foregroundColor: Colors.white,
       elevation: 6,
     ),
     
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
-        backgroundColor: AppColors.primaryPurple,
+        backgroundColor: AppColors.secondaryLavenderDark,
         foregroundColor: Colors.white,
         elevation: 2,
         padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
@@ -214,7 +214,7 @@ class AppTheme {
     
     textButtonTheme: TextButtonThemeData(
       style: TextButton.styleFrom(
-        foregroundColor: AppColors.primaryPurple,
+        foregroundColor: AppColors.secondaryLavenderDark,
         textStyle: AppTextStyles.button,
       ),
     ),
@@ -232,7 +232,7 @@ class AppTheme {
       ),
       focusedBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(12),
-        borderSide: const BorderSide(color: AppColors.primaryPurple, width: 2),
+        borderSide: const BorderSide(color: AppColors.secondaryLavenderDark, width: 2),
       ),
       errorBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(12),

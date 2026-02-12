@@ -17,6 +17,9 @@ import '../widgets/mood_chart.dart';
 import '../../../gratitude/presentation/screens/gratitude_screen.dart';
 import '../../../cbt/presentation/screens/cbt_screen.dart';
 import '../../../crisis/presentation/screens/crisis_screen.dart';
+import '../../../coach/presentation/screens/ai_coach_screen.dart';
+import '../../../../core/services/revenuecat_service.dart';
+import '../../../paywall/presentation/screens/paywall_screen.dart';
 
 class HomeScreen extends ConsumerStatefulWidget {
   const HomeScreen({super.key});
@@ -168,7 +171,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
       extendBody: true,
       appBar: AppBar(
         title: Text(
-          'MindFlow',
+          'Simon',
           style: AppTextStyles.headlineSmall.copyWith(
             fontWeight: FontWeight.bold,
             letterSpacing: 0.5,
@@ -192,19 +195,58 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
           const SizedBox(width: 8),
         ],
       ),
-      body: Container(
-        decoration: BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
-            colors: [
-              AppColors.backgroundDark,
-              AppColors.backgroundDark.withBlue(40),
-              AppColors.backgroundDark.withGreen(30),
-            ],
+      body: Stack(
+        children: [
+          // Cosmic background
+          Container(
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
+                colors: [
+                  AppColors.backgroundDark,
+                  const Color(0xFF0F1B3D),
+                  const Color(0xFF0A1628),
+                ],
+              ),
+            ),
           ),
-        ),
-        child: SafeArea(
+          // Decorative cosmic orbs
+          Positioned(
+            top: -60,
+            right: -40,
+            child: Container(
+              width: 200,
+              height: 200,
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                gradient: RadialGradient(
+                  colors: [
+                    AppColors.secondaryLavender.withValues(alpha: 0.08),
+                    Colors.transparent,
+                  ],
+                ),
+              ),
+            ),
+          ),
+          Positioned(
+            bottom: 200,
+            left: -60,
+            child: Container(
+              width: 160,
+              height: 160,
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                gradient: RadialGradient(
+                  colors: [
+                    AppColors.secondaryLavenderDark.withValues(alpha: 0.06),
+                    Colors.transparent,
+                  ],
+                ),
+              ),
+            ),
+          ),
+          SafeArea(
           child: SingleChildScrollView(
             physics: const BouncingScrollPhysics(),
             padding: const EdgeInsets.symmetric(vertical: 20),
@@ -242,7 +284,9 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                               ),
                               const SizedBox(height: 4),
                               ShaderMask(
-                                shaderCallback: (bounds) => AppColors.primaryGradient.createShader(bounds),
+                                shaderCallback: (bounds) => const LinearGradient(
+                                  colors: [Color(0xFFA78BFA), Color(0xFFC4B5FD), Color(0xFFF1F5F9)],
+                                ).createShader(bounds),
                                 child: Text(
                                   'How are you feeling?',
                                   style: AppTextStyles.headlineMedium.copyWith(
@@ -459,18 +503,19 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                     children: [
                       Expanded(
                         child: QuickActionCard(
-                          icon: Icons.analytics_rounded,
-                          title: 'Analytics',
-                          subtitle: 'Your insights',
-                          gradient: const LinearGradient(
-                            colors: [
-                              AppColors.primaryTeal,
-                              AppColors.primaryBlue,
-                            ],
-                          ),
-                          onTap: () => ref
-                              .read(selectedTabProvider.notifier)
-                              .state = 3,
+                          icon: Icons.psychology_rounded,
+                          title: 'AI Coach',
+                          subtitle: 'Talk to Simon',
+                          gradient: AppColors.primaryGradient,
+                          onTap: () {
+                            HapticFeedback.lightImpact();
+                            final isPremium = ref.read(isPremiumProvider);
+                            if (isPremium) {
+                              Navigator.push(context, MaterialPageRoute(builder: (_) => const AiCoachScreen()));
+                            } else {
+                              showPaywallIfNeeded(context, ref, featureName: 'AI Coach');
+                            }
+                          },
                         ),
                       ),
                       const SizedBox(width: 12),
@@ -589,7 +634,8 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
               ],
             ),
           ),
-        ),
+          ),
+        ],
       ),
     );
   }
